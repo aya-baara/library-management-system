@@ -18,7 +18,7 @@ begin
 	Else
 		begin
 			if(@DaysLate>30)
-				 set @Fee=@DaysLate*2;
+				 set @Fee=30+((@DaysLate-30)*)2;
 			else 
 				set @Fee=@DaysLate;
 		
