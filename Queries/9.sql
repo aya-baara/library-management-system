@@ -7,5 +7,5 @@ from loans l
 join books b on b.BookId = l.BookID
 group by (b.Author)
 ) 
-select * , DENSE_RANK() over(order by Af.borrowing_freq desc) as author_rank
-from author_frequancy Af
+select Af.Author_name,Af.borrowing_freq , DENSE_RANK() over(order by Af.borrowing_freq desc) as author_rank
+from author_frequancy Af 
