@@ -2,7 +2,7 @@
 
 with author_frequancy (Author_name , borrowing_freq) as
 (
-select b.Author as Author_name ,count(*) as borrowing_freq
+select b.Author,count(*)
 from loans l
 join books b on b.BookId = l.BookID
 group by (b.Author)
