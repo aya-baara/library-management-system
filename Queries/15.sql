@@ -31,5 +31,6 @@ begin
 	join Books b on b.BookId = l.BookID
 	where l.Due_Date < GETDATE() and l.Date_Returned is null
 
+	drop table #OverdueBorrowers
 end;
 
