@@ -18,14 +18,17 @@ count(*) as frequancy
 from Borrower_Ages
 group by AgeGroupStart , Genre
 )
-select gp.*
-from Genre_Preference gp
-join (
+
+Max_Frequency as (
     select AgeGroupStart, max(frequancy) as MaxFreq
     from Genre_Preference
     group by AgeGroupStart
-) as maxed
-on gp.AgeGroupStart = maxed.AgeGroupStart
-and gp.frequancy = maxed.MaxFreq
-order by gp.AgeGroupStart asc
+)
+select gp.*
+from Genre_Preference gp
+join Max_Frequency maxed
+    on gp.AgeGroupStart = maxed.AgeGroupStart
+    and gp.frequancy = maxed.MaxFreq
+order by gp.AgeGroupStart asc;
+
 
