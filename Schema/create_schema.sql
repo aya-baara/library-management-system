@@ -28,5 +28,5 @@ BookID int NOT NULL foreign key references Books(BookId),
 BorrowerID int NOT NULL foreign key references Borrowers(BorrowerID),
 Date_Borrowed Date NOT NULL,
 Due_Date Date NOT NULL ,
-Date_Returned Date
+Date_Returned Date NULL
 );
